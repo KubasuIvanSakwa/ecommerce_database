@@ -50,11 +50,16 @@ const productSchema = new mongoose.Schema(
         required: true,
         default: ["https://placehold.co/600x400"]
     },
-   //  category: {
-   //      type: mongoose.Schema.Types.ObjectId, // Recommended for relation
-   //      ref: 'Category', // Reference to the separate Category model
-   //      required: true,
-   //  },
+    category: {
+        type: mongoose.Schema.Types.ObjectId, // Recommended for relation
+        ref: 'Category', // Reference to the separate Category model
+        required: true,
+    },
+    subCategory: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'SubCategory',
+      required: false
+  },
 
   },
   { timestamps: true }
