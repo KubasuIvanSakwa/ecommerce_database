@@ -7,6 +7,7 @@ import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
 
 import errorMiddleware from "./middleware/error.middleware.js";
+import categoryRouter from "./routes/category.routes.js";
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(cookieParser())
 
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/cat', categoryRouter)
 
 app.get('/', (req, res) => {
     res.send("eccormerce-database API")
