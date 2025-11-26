@@ -15,8 +15,6 @@ export const createSubCategory = async (req, res, next) => {
         const existingSubCategory = await SubCategory.findOne({ name, category })
         const existingCategory = await Category.findById(category)
 
-        console.log(existingCategory)
-
         if(existingSubCategory) {
             const error = new Error("subCategory already exists")
             error.statusCode = 400
@@ -36,9 +34,7 @@ export const createSubCategory = async (req, res, next) => {
         }
 
 
-
-
-        // if new cat
+        // if new subcat
         const subCategory = await SubCategory.create([{ name, category }], { session })
 
         await session.commitTransaction()
