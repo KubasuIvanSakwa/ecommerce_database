@@ -16,7 +16,7 @@ categoryRouter.get('/', authorize, getAllCategories)
 // categoryRouter.delete('/:id', authorize, deleteCategory)
 
 // SubCategory routes
-// categoryRouter.post('/subcategory', authorize, createSubCategory)
+categoryRouter.post('/subcategory', authorize, createSubCategory)
 
 categoryRouter.delete('/subcategory/:id', authorize, deleteSubCategory)
 

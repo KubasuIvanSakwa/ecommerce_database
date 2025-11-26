@@ -47,7 +47,6 @@ const productSchema = new mongoose.Schema(
     },
     images: {
         type: [String], // Array of image URLs
-        required: true,
         default: ["https://placehold.co/600x400"]
     },
     category: {

@@ -10,7 +10,6 @@ export const createCategory = async (req, res, next) => {
         // add a category
         const { name } = req.body
 
-        //check if user already exists
         const existingCategory = await Category.findOne({ name })
 
         if(existingCategory) {
