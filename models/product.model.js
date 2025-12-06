@@ -51,12 +51,12 @@ const productSchema = new mongoose.Schema(
     },
     category: {
         type: mongoose.Schema.Types.ObjectId, // Recommended for relation
-        ref: 'Category', // Reference to the separate Category model
+        ref: 'category', // Reference to the separate Category model
         required: true,
     },
     subCategory: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'SubCategory',
+      ref: 'subCategory',
       required: false
   },
 

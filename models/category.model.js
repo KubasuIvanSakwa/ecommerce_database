@@ -39,7 +39,7 @@ categorySchema.pre('validate', async function(next) {
       
       const generateSlug = (cat_name) => {
         slug = cat_name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')
-        }
+      }
 
         if(!this.name) {
           return next()
@@ -63,6 +63,7 @@ categorySchema.pre('validate', async function(next) {
     }
     next()
 })
+
 
 const Category = mongoose.model('category', categorySchema)
 

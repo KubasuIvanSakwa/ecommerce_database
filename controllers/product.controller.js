@@ -186,3 +186,33 @@ export const updateProduct = async (req, res, next) => {
         next(error)
     }
 }
+
+export const deleteProduct = async (req, res, next) => {
+    const session = await mongoose.startSession();
+    session.startTransaction();
+
+    try {
+      const  product = await Product.findById(req.params.id)
+      
+      if(!product) {
+        const error = new Error('Product not found')
+        error.statusCode = 404
+        throw error
+      }
+      
+      const deletedProduct = await Product.deleteOne({ _id: req.params.id })
+
+      await session.commitTransaction();
+      session.endSession();
+
+      res.status(200).json({
+          success: true,
+          message: "Product was deleted successfully"
+      })
+
+    } catch(error) {
+        await session.abortTransaction();
+        session.endSession();
+        next(error);
+    }
+}

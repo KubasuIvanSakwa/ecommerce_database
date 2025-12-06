@@ -11,6 +11,30 @@ const orderSchema = new mongoose.Schema({
     totalAmount
     mpesaRef
  */
+   user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user',
+      required: true
+   },
+   items: [
+      {
+         productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "product",
+            required: true,
+         },
+         quantity: {
+            type: Number,
+            required: true,
+            min: 1, 
+         },
+         priceAtOrder: {
+            // price snapshot
+            type: Number,
+            required: true,
+         },
+      }
+   ]
 }, { timestamps: true})
 
 const Order = mongoose.model('order', orderSchema)

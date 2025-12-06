@@ -19,7 +19,7 @@ export const getUser = async (req, res, next) => {
 
     if (!user) {
       const error = new Error("User does not exist");
-      error.statusCode = 400;
+      error.statusCode = 404;
       throw error;
     }
 
